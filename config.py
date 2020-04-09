@@ -23,8 +23,8 @@ class Config:
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_vkVWfmJebLyi65YIpqs4lULM00pWXwr0k'
-    STRIPE_SECRET_KEY = 'sk_test_dI7u4s1haOVDcKr4dgB2Zx3m00je15oi7'
+    STRIPE_PUBLISHABLE_KEY = ''
+    STRIPE_SECRET_KEY = ''
 
     ADMIN_EMAIL = 'admin@admin.org'
     ADMIN_PWD = 'qweasd'
