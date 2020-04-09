@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="{{ url_for('static', filename='img/favicon.png') }}" />
+
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="{{ url_for('static', filename='img/favicon.png') }}" />
+
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+  <meta content="on" name="twitter:widgets:csp" />
+  <title> {{ title }} - Dish Removal Service &amp; Dish Removal Service in Chicago</title>
+  <meta content="Book an appointment to have the dishes and satellites removed from you property.  We then come and remove those items at your convenience
+    name='description'" />
+  <meta content="Dish Removal, Dish Removal in Chicago, Satellite Removal, Satellite Removal in Chicago, DishRemoval"
+    name="keywords" />
+  <meta content="Dish Removal &amp; Dish Removal in Chicago: Dish Removal" property="og:title" />
+  <meta content="website" property="og:type" />
+  <meta content="http://www.dishwasher.com/" property="og:url" />
+
+  <meta content="1200" property="og:image:height" />
+  <meta content="630" property="og:image:width" />
+  <link href="/" rel="canonical" />
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400&amp;subset=latin-ext" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" rel="stylesheet" />
+  <meta content="app-id=1037581290" name="apple-itunes-app" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" media="all"
+    href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+    
+      <link rel="stylesheet" media="all"
+        href="{{ url_for('static', filename='css/tiptop.css') }}" />
+
+</head>
+<body>
+  <header class="page-header">
+    <div class="wrap"></div>
+    <div class="wrap">
+      <div class="header">
+        <div>
+            <a href="/"><img class="header--logo"
+              src="https://cdn.laundryheap.com/production/assets/logo-full-e9387d461ba78fef68ac0fe88ea2425d529369a4cc2b027b3790f51b2c03bf21.svg"
+              alt="Logo full" /></a>
+            <nav class="header--nav"><a href="/#home-howitworks">How It Works</a><a
+              href="/#home-prices">Prices</a><a href="/faq?country=US">FAQ</a></nav>
+        </div>
+        <div>
+            {% if not current_user.is_authenticated %}
+                <span>Already a user?&nbsp;<a data-toggle="modal" data-target="#registerModal" href="#">Log in</a>
+                    <a class="btn btn-inverse btn-primary btn-s" data-toggle="modal" data-target="#registerModal" href="#">Book now</a>
+                </span>
+            {% else %}
+                <span> <a href="/logout">Logout</a></span>
+            <a class="btn btn-inverse btn-primary btn-s" href="/booking">Book now</a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>

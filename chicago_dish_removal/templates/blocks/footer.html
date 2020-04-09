@@ -1,0 +1,166 @@
+<footer class="page-footer">
+  <div class="footer-feature">
+    <div class="wrap">
+
+    </div>
+  </div>
+  <div class="footer-main">
+    <div class="wrap">
+      <section>
+        <h4 class="footer-heading-1"><span class="translation_missing"
+            title="translation missing: en.About">About</span></h4>
+        <ul>
+          <li><a href="terms">Terms</a></li>
+          <li><a href="privacy">Privacy</a></li>
+          <li><a href="faq">FAQ</a></li>
+        </ul>
+      </section>
+
+      <div style="margin: 80px 0 0 -70px">
+          3509 w congress pkwy <br>  Chicago IL 60624
+      </div>
+    </div>
+
+
+  </div>
+
+</footer>
+{% if not current_user.is_authenticated %}
+
+{% include "blocks/modal.html" %}
+
+{% endif %}
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" />
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}">
+</script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+{#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"#}
+{#  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>#}
+
+<script src="{{ url_for('static', filename='js/moment.min.js') }}">
+</script>
+<script src="{{ url_for('static', filename='js/bootstrap-datetimepicker.js') }}">
+</script>
+<script src="{{ url_for('static', filename='js/custom-js.js') }}">
+</script>
+<style>
+  .modal {
+    z-index: 313374 !important;
+    top: 60px !important;
+  }
+
+  .social_icon .icon {
+    font-size: 20px;
+    margin-left: 5px;
+    color: #12d572;
+  }
+
+  .login_btn {
+    color: #fff !important;
+    background-color: #12d572 !important;
+    width: 100px;
+  }
+
+  .form-group {
+    margin-bottom: 10px !important;
+  }
+
+  .remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+  }
+
+  .register label {
+    margin-bottom: 0px;
+  }
+
+  /* .banner {
+   height: 50vh;
+   min-height: 500px;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+
+ .privacy {
+   background-image: url('/static/img/privacy-banner_new.png');
+   min-height: 300px !important;
+ }
+ .static-rtc.prvc p{
+   font-family: inherit;
+     font-weight: 400;
+     line-height: 1.6;
+     margin-bottom: 1.25rem;
+     text-rendering: optimizeLegibility;
+ } */
+  h1.static-header-title.faq {
+    padding-top: 50px;
+    color: #000;
+    font-size: 40px;
+  }
+
+  .static-rtc.prvc h4 {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .term {
+    background-image: url('/static/img/new_terms.png');
+    min-height: 300px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .faq {
+    background-image: url('/static/img/faq-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
+  }
+
+
+  .hdr_fq p {
+    color: #56657C;
+    font: 400 100%/1.4 Poppins, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .hdr_fq h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    padding-top: 25px;
+  }
+
+  .static-rtc.prvc.terms {
+    padding: 10px 0px;
+  }
+
+  .bootstrap-datetimepicker-widget.timepicker-picker table td,
+  .bootstrap-datetimepicker-widget.timepicker-picker table td span,
+  .bootstrap-datetimepicker-widget.timepicker-picker table td a span {
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    padding: 0px;
+  }
+
+  .bootstrap-datetimepicker-widget table td.day {
+    height: 15px !important;
+    line-height: 15px !important;
+    width: 20px !important;
+  }
+</style>

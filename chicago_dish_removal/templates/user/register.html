@@ -1,0 +1,78 @@
+<div class="modal-body register" style="display:none">
+  <div class="card">
+    <div class="card-header">
+      <h3>Register</h3>
+      <div class="d-flex justify-content-end social_icon">
+        <span class="icon"><span class="fab fa-facebook-square"></span></span>
+        <span class="icon"><span class="fab fa-google-plus-square"></span></span>
+        <span class="icon"><span class="fab fa-twitter-square"></span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <form method="post" action="/register">
+        {% for message in get_flashed_messages() %}
+        <div class="input-group form-group">
+          <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+          </div>
+        </div>
+        {% endfor %}
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><span class="fas fa-user"></span></span>
+          </div>
+          {{ form.name(placeholder='Full name', class_="form-control") }}
+          {% if form.name.errors %}
+          <ul class="errors">
+            {% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><span class="fas fa-user"></span></span>
+          </div>
+          {{ form.email(placeholder='youremail@example.com', type="email", class_="form-control") }}
+          {% if form.email.errors %}
+          <ul class="errors">
+            {% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><span class="fas fa-key"></span></span>
+          </div>
+          {{ form.password(placeholder='Password', class_="form-control") }}
+          {% if form.password.errors %}
+          <ul class="errors">
+            {% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><span class="fas fa-key"></span></span>
+          </div>
+          {{ form.confirm(placeholder='Confirm password',id="confirm_password", class_="form-control") }}
+          {% if form.confirm.errors %}
+          <ul class="errors">
+            {% for error in form.confirm.errors %}<li>{{ error }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Register" class="btn float-right login_btn">
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        Already a user? <a id="login" href="javascript:void(0)">Login</a>
+      </div>
+
+    </div>
+  </div>
+</div>

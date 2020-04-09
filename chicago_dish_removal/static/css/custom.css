@@ -1,0 +1,179 @@
+.banner {
+  height: 50vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.privacy {
+  background-image: url('/static/img/privacy-banner_new.png');
+  min-height: 300px !important;
+}
+
+.static-header-title.prvcy {
+  padding-top: 50px;
+  color: #fff;
+  font-size: 40px;
+}
+
+.static-rtc.prvc p {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-rendering: optimizeLegibility;
+}
+
+h1.static-header-title.faq {
+  padding-top: 50px;
+  color: #000;
+  font-size: 40px;
+}
+
+.static-rtc.prvc h4 {
+  text-align: center;
+  font-size: 36px;
+}
+
+.term {
+  background-image: url('/static/img/new_terms.png');
+  min-height: 300px !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.faq {
+  background-image: url('/static/img/faq-banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px;
+}
+
+
+.hdr_fq p {
+  color: #56657C;
+  font: 400 100%/1.4 Poppins, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.hdr_fq h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  padding-top: 25px;
+}
+
+.static-rtc.prvc.terms {
+  padding: 10px 0px;
+}
+
+.modal {
+  z-index: 313374 !important;
+  top: 60px !important;
+}
+
+.social_icon .icon {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #12d572;
+}
+
+.login_btn {
+  color: #fff !important;
+  background-color: #12d572 !important;
+  width: 100px;
+}
+
+.form-group {
+  margin-bottom: 10px !important;
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.register label {
+  margin-bottom: 0px;
+}
+
+/* .card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+} */

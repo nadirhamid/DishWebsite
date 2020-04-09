@@ -1,0 +1,393 @@
+{% include "blocks/header.html" %}
+
+<link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/bootstrap-datetimepicker.css') }}" />
+<main class="page-body">
+  <header class="static-header banner privacy">
+    <div class="wrap">
+      <h1 class="static-header-title ">Book an Appointment</h1>
+    </div>
+  </header>
+  <section class="static-body">
+    <div class="user_card">
+      <div class="d-flex justify-content-center form_container">
+        <form action="/booking" method="POST" id="booking-form">
+
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+          <div class="row">
+            <div class="input-group form-group">
+              <div class="alert alert-{{ category }}">
+                <button type="button" class="close" data-dismiss="alert" style="margin-left: 10px; font-size: 20px">&times;</button>
+                {{ message }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          <div class="row">
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input class="form-control input_user" value="" id="full_name" name="full_name" placeholder="Full Name*"
+                  required="true" type="text" value="">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-at"></i></span>
+                </div>
+                <input class="form-control input_user" value="" id="visitor_email" name="visitor_email"
+                  placeholder="Email*" required="true" type="email" value="">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+                <input class="form-control input_user" value="" id="visitor_phone" name="visitor_phone"
+                  placeholder="Phone" required="true" type="number" value="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                </div>
+                {{ booking_form.booking_time(placeholder='Booking date/time*', required="true", class_="form-control input_user") }}
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                </div>
+                {{ booking_form.address_line_1(placeholder='Address Line 1*', required="true", class_="form-control input_user") }}
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                </div>
+                {{ booking_form.address_line_2(placeholder='Address Line 2', class_="form-control input_user") }}
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                </div>
+                {{ booking_form.city(placeholder='City*', required="true", class_="form-control input_user") }}
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                </div>
+                {{ booking_form.state(placeholder='State*', required="true", class_="form-control input_user") }}
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                </div>
+                {{ booking_form.zipcode(placeholder='Zipcode*',id="zipcode", required="true", class_="form-control input_user") }}
+              </div>
+            </div>
+          </div>
+
+        <div class="pay-container">
+          <div class="row">
+            <div class="col-12">
+                  <div class="form-row">
+                    <div id="card-element">
+                      <!-- A Stripe Element will be inserted here. -->
+                    </div>
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
+                  </div>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fa fa-bars"></i></span>
+                </div>
+                  <input class="form-control input_user" value="" id="dishes" name="dishes"
+                  placeholder="Number of dishes*" required="true" type="number" min="1">
+              </div>
+            </div>
+            <div class="col-auto my-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="luxury" id="autoSizingCheck2" style="margin-top: 7px">
+                <label class="form-check-label" for="autoSizingCheck2">Luxury finish</label>
+              </div>
+            </div>
+            <div class="col-auto" style="margin-left: 155px">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text" style="background-color: white; border: none;">Price:</div>
+                </div>
+                <input type="text" class="form-control py-0" id="inlineFormInputGroup" value="$0.00" disabled>
+              </div>
+            </div>
+          </div>
+
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="alert alert-info" role="alert" style="margin: 0">
+                      Providing you card details, does not charge the money from your credit card.
+                        Once your order will be completed, the administrator will confirm the payment.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+              <input style="width:25%; margin-top:15px" type="button" id="submit-btn" name="button" class="btn login_btn" value="Book Appointment" />
+            </div>
+        </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+{% include "blocks/footer.html" %}
+
+</body>
+
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+<script>
+
+    var regularPrice = {{ regular_price }};
+    var luxuryPrice = {{ luxury_price }};
+    var additionalPrice = {{ additional_price }};
+
+    var luxElement = $('#autoSizingCheck2').change(calcPrice);
+    var dishesElement = $('#dishes').on('input', calcPrice);
+
+    function calcPrice() {
+        var dish = Number($('#dishes').val());
+        var lux = $('#autoSizingCheck2');
+        var price = 0;
+
+        if(dish >= 1){
+            var additional = dish - 1;
+            if(lux.is(':checked')){
+                price = additional * additionalPrice + luxuryPrice;
+            }else{
+                price = additional * additionalPrice + regularPrice;
+            }
+        }
+        $('#inlineFormInputGroup').val('$' + price.toFixed(2));
+    }
+
+    // Create a Stripe client.
+    var pubKey = '{{ pub_key }}';
+    var stripe = Stripe(pubKey);
+    var TOKEN = '';
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+      base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#6c757d'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {hidePostalCode: true, style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function(event) {
+      var displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+    });
+
+    var form = document.getElementById('booking-form');
+    var submitBtn = document.getElementById('submit-btn');
+    submitBtn.addEventListener('click', function ( ) {
+        if(!form.checkValidity()){
+            form.reportValidity();
+        }
+
+        if(TOKEN){
+            stripeTokenHandler();
+            return;
+        }
+
+        stripe.createToken(card).then(function(result) {
+            if (result.error) {
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                // Send the token to your server.
+                TOKEN = result.token.id;
+                stripeTokenHandler();
+            }
+      });
+    });
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler() {
+      // Insert the token ID into the form so it gets submitted to the server
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', TOKEN);
+      form.appendChild(hiddenInput);
+
+        if(!form.checkValidity()){
+            form.reportValidity();
+        }else{
+          form.submit();
+        }
+    }
+
+  $(document).ready(function () {
+    $('#booking_time').datetimepicker({
+      minDate: new Date(),
+      icons: {
+        time: "fa fa-clock",
+        date: "fa fa-calendar",
+        up: "fa fa-arrow-up",
+        down: "fa fa-arrow-down",
+        previous: "fa fa-chevron-left",
+        next: "fa fa-chevron-right",
+        today: "fa fa-clock",
+        clear: "fa fa-trash"
+      },
+    });
+
+    $('#booking_time').click(function () {
+      var popup = $(this).offset();
+      var popupTop = popup.top - 40;
+      $('.ui-datepicker').css({
+        'top': popupTop
+      });
+    });
+
+  });
+</script>
+
+<style>
+    #inlineFormInputGroup:disabled {
+        background-color: white;
+    }
+    #inlineFormInputGroup{
+        width: 100px;
+        border: none;
+    }
+
+    .alert{
+        margin: 0 0 5px 15px;
+        padding: 10px;
+    }
+
+    #card-errors{
+        position: absolute;
+        margin-top: 40px;
+        margin-left: 5px;
+        font-size: 13px;
+        color: orangered;
+    }
+
+    #card-element{
+        width: 99%;
+        margin-left: 4px;
+        margin-bottom: 20px;
+    }
+
+    .pay-container{
+        border: 1px solid gray;
+        border-radius: 3px;
+        padding: 20px;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+        /**
+     * The CSS shown here will not be introduced in the Quickstart guide, but shows
+     * how you can use CSS to style your Element's container.
+     */
+
+    .StripeElement {
+      box-sizing: border-box;
+
+      height: 40px;
+
+      padding: 10px 12px;
+
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background-color: white;
+
+      box-shadow: 0 1px 3px 0 #e6ebf1;
+      -webkit-transition: box-shadow 150ms ease;
+      transition: box-shadow 150ms ease;
+    }
+
+    .StripeElement--focus {
+      box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+
+    .StripeElement--invalid {
+      border-color: #fa755a;
+    }
+
+    .StripeElement--webkit-autofill {
+      background-color: #fefde5 !important;
+    }
+</style>
+
+</html>
