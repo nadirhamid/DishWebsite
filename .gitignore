@@ -1,6 +1,6 @@
 /venv
 /.idea
-/chicago_dish_removal/example.sqlite
+
 /.vscode
 
 __pycache__/
