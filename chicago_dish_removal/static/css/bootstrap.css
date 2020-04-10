@@ -6795,7 +6795,9 @@ hr.blue-divider {
 }
 
 .page-header .header .header--logo {
-    height: 32px;
+    display: block;
+    height: 100px;
+    width: 100px;
     vertical-align: middle
 }
 
