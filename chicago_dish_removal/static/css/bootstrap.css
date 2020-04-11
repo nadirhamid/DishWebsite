@@ -2409,7 +2409,7 @@ h3.cleaner-list__name a {
 @media screen and (min-width: 1180px) {
     .landing-hero .landing-hero__graphic {
         display: block;
-        background: url(https://cdn.laundryheap.com/production/assets/landing/header-1-9217e81e37008208be44b848be626a7c37952d5a352b8a15b42c29dbd1bd6c91.jpg) top right no-repeat;
+        background: url(/static/img/landinghero.jpg) top right no-repeat;
         background-position: 128px;
         background-size: auto 668px
     }
