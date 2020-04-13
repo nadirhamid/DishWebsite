@@ -22,7 +22,12 @@ Open the **config.py** file and modify the following fields with your credential
     `sudo docker build . `
 
 - Run a image
-    `sudo docker run -e SQLALCHEMY_DATABASE_URI="PASS_ME"  -p 5000:5000 IMAGE_ID`
+    `sudo docker run -e SQLALCHEMY_DATABASE_URI="mysql://root:12345678@localhost/db_chicago_dish?charset=utf8"  -p 5000:5000 IMAGE_ID`
 
 - Cut a tag
     `sudo docker tag IMAGE_ID REGISTRY_PATH`
+
+# Run the application:-
+
+`sudo docker-compose up -d` for deamon mode
+`sudo docker-compose up` without deamon mode
