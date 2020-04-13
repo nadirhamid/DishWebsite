@@ -34,3 +34,16 @@ Open the **config.py** file and modify the following fields with your credential
     sudo docker push DOCKER_HUBPATH
     instead of build use DOCKER_HUB_PATH
     if still error use sude docker-compose run --rm app bash and run migration command
+
+# Run app using docker-compose
+
+   `sudo docker-compose up`
+    Note:- If you encounter any issue after this please run below command
+    ```
+        1. `sudo docker-compose stop`
+        2. `sudo docker-compose rm -v`
+        3. `sudo docker-compose up`
+    ```
+
+    For daemon mode please run with -d for ex. `sudo docker-compose up -d`
+
