@@ -1,0 +1,22 @@
+version: "3"
+services:
+  app:
+    build: .
+    links:
+      - db
+    ports:
+      - "5000:5000"
+    environment:
+      SQLALCHEMY_DATABASE_URI: "mysql://admin:root@db/db_chicago_dish"
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: db_chicago_dish
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
