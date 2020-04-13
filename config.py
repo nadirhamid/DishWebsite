@@ -1,6 +1,5 @@
 import os
 
-
 class Config:
     """Set Flask configuration vars from .env file."""
     # General Config
@@ -18,7 +17,7 @@ class Config:
     MAIL_PASSWORD = ''
 
     # Database
-    SQLALCHEMY_DATABASE_URI = "mysql://root:12345678@localhost/db_chicago_dish?charset=utf8"
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI", "mysql://root:12345678@localhost/db_chicago_dish?charset=utf8")
     # SQLALCHEMY_DATABASE_URI = "sqlite:///example.sqlite"
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
