@@ -1,8 +1,6 @@
 FROM gcr.io/google-appengine/python
 
 RUN apt-get update \
-  && apt-get install -y postgresql postgresql-contrib \
-  && apt-get install -y libxml2-dev libxmlsec1-dev libxmlsec1-openssl \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
