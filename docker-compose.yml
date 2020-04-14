@@ -22,7 +22,7 @@ services:
     networks:
       - flask-backend-tier
     healthcheck:
-        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "db", "-u", "admin", "--password=12345678"]
         timeout: 20s
         retries: 10
     environment:
