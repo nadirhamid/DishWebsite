@@ -28,4 +28,4 @@ ADD . /app
 EXPOSE 5000
 
 # Run a WSGI server to serve the application.
-#CMD ./docker_entry.sh
+CMD ./docker_entry.sh
